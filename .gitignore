@@ -36,9 +36,9 @@ vignettes/*.pdf
 rsconnect/
 
 #Object files
-
 *.o
 *.a
+#Editors temporary files
 *~
 ^\#
 \#$
