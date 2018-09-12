@@ -7,7 +7,7 @@
 AgroTest()
 }
 \value{
-It depends on the export parameter. The function returns with a matrix with the modell output, or writes this in a file, which is given previously
+It depends on the export parameter.
 }
 \description{
 This function runs the BBGC-MuSo model and reads in its outputfile in a very structured way, and after that plot the results automaticly

@@ -8,7 +8,8 @@ Authors@R: c(
     person("Zoltan", "Barcza", email = "zoltan.barcza@ttk.elte.hu", role = c("aut","ths"))
    )
 Imports:
-    RBBGCMuso
+    RBBGCMuso,
+    dplyr
 Description: This package...
 Depends: R (>= 3.0)
 License: GPL-3

@@ -42,3 +42,6 @@ rsconnect/
 *~
 ^\#
 \#$
+#Temporary R files for work
+
+inst/*.R
