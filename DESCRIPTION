@@ -9,7 +9,9 @@ Authors@R: c(
    )
 Imports:
     RBBGCMuso,
-    dplyr
+    dplyr,
+    ggplot2,
+    latex2exp
 Description: This package...
 Depends: R (>= 3.0)
 License: GPL-3
