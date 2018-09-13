@@ -32,5 +32,5 @@ soilWaterPlotStyle <- function(){
         axis.title.y.left = element_text(size = 14),
         panel.background = element_blank(),
         axis.ticks.y.left = element_blank())
-
+        
 }

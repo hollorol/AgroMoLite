@@ -55,18 +55,17 @@ soilWaterC <- function(baseData,years, yearDays, style=soilWaterPlotStyle){
     select(year,yearDay,soilWater) %>%
     filter(year==years,yearDay==yearDays) %>%
     tidyr::gather(.,key = vwcStamp, value = vwc,soilWater)%>%
-    mutate(depth=-10*(1:6)+5) %>%
+    mutate(depth=-c(0.1,0.35,0.75,1.5,3.5,7.5)) %>%
     ggplot(aes(depth,vwc))+
   #  scale_x_continuous(position = "right")+
     scale_y_continuous(position = "top",
                        sec.axis = dup_axis(),
-                       breaks = 
                        )+
-    geom_vline(xintercept = -c(10,20,30,40,50), col="bisque3")+
-    scale_x_continuous(labels=c("0-2 cm","2-5 cm","5-10 cm", "10-20 cm","20-50 cm","50-100 cm"),breaks = -c(5,15,25,35,45,55))+
+    geom_vline(xintercept = -c(0.2,0.5,1,2,5), col="bisque3")+
+    scale_x_continuous(labels=c("0-2 cm","2-5 cm","5-10 cm", "10-20 cm","20-50 cm","50-100 cm"),breaks = -c(0.1,0.35,0.75,1.5,3.5,7.5),expand = c(0,0.095))+
     coord_flip()+
-      geom_line(size=1.5, color="brown") +
-      geom_point(size=3, shape=19, colour="black", alpha=1)+
+      geom_line(size=1, color="brown") +
+      geom_point(size=2, shape=19, colour="black", alpha=1)+
     ylab(TeX("Soil water content \\[m^3/m^3\\]"))+ style()
 
 }
