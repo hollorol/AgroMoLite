@@ -1,3 +1,8 @@
+#' doublePlot
+#' 
+#' @author Roland Hollos
+#' @import ggplot2
+#' @keywords internal
 doublePlot <- function(baseData,colorVec,variables,yearLim=c(-Inf,Inf), plotStyle=dplotStyl){
 
     if(length(year)==1){
@@ -40,13 +45,16 @@ doublePlot <- function(baseData,colorVec,variables,yearLim=c(-Inf,Inf), plotStyl
 
     
 }
-
+#'soilWaterC
+#'
+#' @keywords internal
+#' @import latex2exp
 soilWaterC <- function(baseData,years, yearDays, style=soilWaterPlotStyle){
     soilWater<-grep("vwc",colnames(baseData),value = TRUE)    
     baseData %>%
     select(year,yearDay,soilWater) %>%
     filter(year==years,yearDay==yearDays) %>%
-    gather(.,key = vwcStamp, value = vwc,soilWater)%>%
+    tidyr::gather(.,key = vwcStamp, value = vwc,soilWater)%>%
     mutate(depth=-10*(1:6)+5) %>%
     ggplot(aes(depth,vwc))+
   #  scale_x_continuous(position = "right")+

@@ -4,7 +4,7 @@
 \alias{soilWaterTest}
 \title{soilWaterTest}
 \usage{
-soilWaterTest(iniFile, epcFile = NULL, year, yearDay)
+soilWaterTest(iniFile, epcFile = NULL, year, yearDay, savePlot = NULL)
 }
 \arguments{
 \item{iniFile}{The name of the inifile}

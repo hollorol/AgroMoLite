@@ -3,3 +3,6 @@
 export(AgroTest)
 export(soilWaterTest)
 import(RBBGCMuso)
+import(dplyr)
+import(ggplot2)
+import(latex2exp)

@@ -2,9 +2,10 @@
 #'
 #' @param iniFile The name of the inifile
 #' @param epcFile The name of the epcfile
+#' @import dplyr
 #' @export
 
-soilWaterTest <- function(iniFile, epcFile=NULL, year, yearDay,savePlot=NULL){
+soilWaterTest <- function(year, yearDay, iniFile, epcFile=NULL,savePlot=NULL){
     settings <- setupMuso()
     numberOfYears <- settings$numYears
     startYear <- settings$startYear
@@ -14,7 +15,7 @@ soilWaterTest <- function(iniFile, epcFile=NULL, year, yearDay,savePlot=NULL){
         as.data.frame() %>%
         tibble::rownames_to_column("date") %>%
         mutate(date2=date,date=as.Date(date,"%d.%m.%Y"),yearDay=rep(1:365,numberOfYears)) %>%
-        separate(date2,c("day","month","year"),sep="\\.")
+        tidyr::separate(date2,c("day","month","year"),sep="\\.")
     if(!is.null(savePlot)){
         ggplot2::ggsave(savePlot,soilWaterC(baseData, years=Year,yearDays=YearDay))
     } else
