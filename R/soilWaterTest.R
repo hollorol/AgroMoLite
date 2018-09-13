@@ -6,12 +6,12 @@
 #' @export
 
 soilWaterTest <- function(year, yearDay, iniFile, epcFile=NULL,savePlot=NULL){
-    settings <- setupMuso()
+    settings <- RBBGCMuso::setupMuso()
     numberOfYears <- settings$numYears
     startYear <- settings$startYear
     YearDay <- yearDay
     Year <- year
-    baseData <- calibMuso(settings,silent = TRUE) %>%
+    baseData <- RBBGCMuso::calibMuso(settings,silent = TRUE) %>%
         as.data.frame() %>%
         tibble::rownames_to_column("date") %>%
         mutate(date2=date,date=as.Date(date,"%d.%m.%Y"),yearDay=rep(1:365,numberOfYears)) %>%

@@ -11,7 +11,8 @@ Imports:
     RBBGCMuso,
     dplyr,
     ggplot2,
-    latex2exp
+    latex2exp,
+    tidyr
 Description: This package...
 Depends: R (>= 3.0)
 License: GPL-3
