@@ -2,7 +2,8 @@
 #'
 #' @param iniFile The name of the inifile
 #' @param epcFile The name of the epcfile
-#' @import dplyr, shiny
+#' @import shiny
+#' @import dplyr
 #' @export
 
 soilWaterTest <- function(year, yearDay, iniFile, epcFile=NULL,savePlot=NULL, skipSpinup=TRUE, interactive=TRUE){

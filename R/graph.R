@@ -2,6 +2,7 @@
 #' 
 #' @author Roland Hollos
 #' @import ggplot2
+#' @import dplyr
 #' @keywords internal
 doublePlot <- function(baseData,colorVec,variables,yearLim=c(-Inf,Inf), plotStyle=dplotStyl){
 
@@ -48,7 +49,8 @@ doublePlot <- function(baseData,colorVec,variables,yearLim=c(-Inf,Inf), plotStyl
 #'soilWaterC
 #'
 #' @keywords internal
-#' @import latex2exp magrittr
+#' @import latex2exp
+#' @import dplyr
 soilWaterC <- function(baseData,years, yearDays, style=soilWaterPlotStyle, yLimits=NULL, language="hu"){
     soilWater<-grep("vwc",colnames(baseData),value = TRUE)
     
