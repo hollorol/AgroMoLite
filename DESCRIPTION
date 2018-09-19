@@ -11,7 +11,8 @@ Imports:
     dplyr,
     ggplot2,
     latex2exp,
-    tidyr
+    tidyr,
+    shiny
 Description: This package...
 Depends: R (>= 3.0),
     RBBGCMuso

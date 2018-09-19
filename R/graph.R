@@ -48,24 +48,40 @@ doublePlot <- function(baseData,colorVec,variables,yearLim=c(-Inf,Inf), plotStyl
 #'soilWaterC
 #'
 #' @keywords internal
-#' @import latex2exp
-soilWaterC <- function(baseData,years, yearDays, style=soilWaterPlotStyle){
-    soilWater<-grep("vwc",colnames(baseData),value = TRUE)    
-    baseData %>%
-    select(year,yearDay,soilWater) %>%
-    filter(year==years,yearDay==yearDays) %>%
+#' @import latex2exp magrittr
+soilWaterC <- function(baseData,years, yearDays, style=soilWaterPlotStyle, yLimits=NULL, language="hu"){
+    soilWater<-grep("vwc",colnames(baseData),value = TRUE)
+    
+    sWBase <- baseData %>%
+        select(year,yearDay,soilWater)
+    sRange <- sWBase %>% select(soilWater) %>% (function (x) {c(min(x),max(x))})
+
+    if(is.null(yLimits)){
+        yLimits <- c(NA,NA)
+    } else {
+        if(is.character(yLimits)){
+            yLimits <- sRange
+        }
+    }
+    if(language=="hu"){
+        
+    }
+    
+    sWBase %>% filter(year==years,yearDay==yearDays) %>%
     tidyr::gather(.,key = vwcStamp, value = vwc,soilWater)%>%
     mutate(depth=-c(0.1,0.35,0.75,1.5,3.5,7.5)) %>%
-    ggplot(aes(depth,vwc))+
+        ggplot(aes(depth,vwc))+
+        labs(x="mélység [cm]")+
   #  scale_x_continuous(position = "right")+
     scale_y_continuous(position = "top",
                        sec.axis = dup_axis(),
+                       limits=yLimits
                        )+
     geom_vline(xintercept = -c(0.2,0.5,1,2,5), col="bisque3")+
-    scale_x_continuous(labels=c("0-2 cm","2-5 cm","5-10 cm", "10-20 cm","20-50 cm","50-100 cm"),breaks = -c(0.1,0.35,0.75,1.5,3.5,7.5),expand = c(0,0.095))+
+    scale_x_continuous(labels=c("2","5","10", "20","50","100"),breaks = -c(0.2,0.5,1,2,5,10),expand = c(0,0.095))+
     coord_flip()+
       geom_line(size=1, color="brown") +
-      geom_point(size=2, shape=19, colour="black", alpha=1)+
-    ylab(TeX("Soil water content \\[m^3/m^3\\]"))+ style()
+     # geom_point(size=2, shape=19, colour="black", alpha=1)+
+    ylab(TeX("Talajrégetek víztartalma \\[m^3/m^3\\]"))+ style()
 
 }
