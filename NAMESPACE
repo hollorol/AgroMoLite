@@ -2,7 +2,9 @@
 
 export(AgroTest)
 export(soilWaterTest)
+import("dplyr,")
 import(RBBGCMuso)
-import(dplyr)
 import(ggplot2)
 import(latex2exp)
+import(magrittr)
+import(shiny)

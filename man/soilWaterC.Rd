@@ -4,7 +4,8 @@
 \alias{soilWaterC}
 \title{soilWaterC}
 \usage{
-soilWaterC(baseData, years, yearDays, style = soilWaterPlotStyle)
+soilWaterC(baseData, years, yearDays, style = soilWaterPlotStyle,
+  yLimits = NULL, language = "hu")
 }
 \description{
 soilWaterC
