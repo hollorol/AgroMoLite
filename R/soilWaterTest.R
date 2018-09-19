@@ -15,6 +15,7 @@ soilWaterTest <- function(year, yearDay, iniFile, epcFile=NULL,savePlot=NULL, sk
         tibble::rownames_to_column("date") %>%
         mutate(date2=date,date=as.Date(date,"%d.%m.%Y"),yearDay=rep(1:365,numberOfYears)) %>%
         tidyr::separate(date2,c("day","month","year"),sep="\\.")
+    soilWater<-grep("vwc",colnames(baseData),value = TRUE)
     sWBase <- baseData %>%
         select(year,yearDay,soilWater)
 
